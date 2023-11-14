@@ -128,32 +128,32 @@ if __name__ == "__main__":
     parser.add_argument("--eval_freq", default=5e3, type=float)            # How often (time steps) we evaluate
     parser.add_argument("--max_timesteps", default=1e6, type=float)        # Max time steps to run environment for
     parser.add_argument("--save_models", action="store_true")            # Whether or not models are saved
-    parser.add_argument("--expl_noise", default=0.1, type=float)        # Std of Gaussian exploration noise
+    parser.add_argument("--expl_noise", default=0.2, type=float)        # Std of Gaussian exploration noise
     parser.add_argument("--batch_size", default=100, type=int)            # Batch size for both actor and critic
     parser.add_argument("--discount", default=0.99, type=float)            # Discount factor
     parser.add_argument("--n_demos", default=1, type=int)
-    parser.add_argument("--tau", default=0.0005, type=float)                # Target network update rate
-    parser.add_argument("--policy_noise", default=0.2, type=float)        # Noise added to target policy during critic update
+    parser.add_argument("--tau", default=0.003, type=float)                # Target network update rate
+    parser.add_argument("--policy_noise", default=0.1, type=float)        # Noise added to target policy during critic update
     parser.add_argument("--noise_clip", default=0.5, type=float)        # Range to clip target policy noise
     parser.add_argument("--policy_freq", default=2, type=int)            # Frequency of delayed policy updates
     parser.add_argument("--experts_path", default="./expert_trajectoriesHalfCheetah-v2_150.npy")
     parser.add_argument("--actor_lr", default=3e-4, type=float)
     parser.add_argument("--critic_lr", default=3e-4, type=float)
-    parser.add_argument("--lamda1", default=50., type=float)
+    parser.add_argument("--lamda1", default=.05, type=float)
     parser.add_argument("--lamda2", default=1., type=float)
     parser.add_argument("--delta", default=0.1, type=float)
-    parser.add_argument("--actor_clip", default=40., type=float)
-    parser.add_argument("--critic_clip", default=100., type=float)
-    parser.add_argument("--max_iter", default=50, type=int)
+    parser.add_argument("--actor_clip", default=0., type=float)
+    parser.add_argument("--critic_clip", default=25., type=float)
+    parser.add_argument("--max_iter", default=20000, type=int)
     parser.add_argument("--pol_updates", default=1000, type=int)
     parser.add_argument("--normalize", action="store_true")            # Whether or not models are saved
     parser.add_argument("--ot_cpu", action="store_true")
     parser.add_argument("--use_match", action="store_true")
-    parser.add_argument("--aug_time", action="store_true")
+    parser.add_argument("--aug_time", action="store_false")
     parser.add_argument("--use_time_index", action="store_true")
     parser.add_argument("--reward_scale", default=5., type=float)
-    parser.add_argument("--std_clip", default=.01, type=float)
-    parser.add_argument("--clip_state", default=False, action="store_true")
+    parser.add_argument("--std_clip", default=.33, type=float)
+    parser.add_argument("--clip_state", default=False, action="store_false")
     parser.add_argument("--use_tcot", default=False, action="store_true")
     parser.add_argument("--dummy_bool", default=False, action="store_true")
     parser.add_argument("--state_action", default=False, action="store_true")
